@@ -6,7 +6,7 @@
 #    By: glafitte <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/25 14:02:08 by glafitte          #+#    #+#              #
-#    Updated: 2014/12/25 14:25:41 by glafitte         ###   ########.fr        #
+#    Updated: 2014/12/25 15:37:24 by glafitte         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,10 @@
 NAME = ft_minishell1
 CFLAGS = -Wall -Werror -Wextra -g -I include/
 LIBFT = lib/libft/
-SRCS =	src/main.c \
-		src/ft_checking.c \
-		src/ft_exec.c \
-		src/ft_option.c
+SRCS =	main.c \
+		ft_checking.c \
+		ft_exec.c \
+		ft_option.c
 		\
 
 OBJ = $(SRCS:.c=.o)
