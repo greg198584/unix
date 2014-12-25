@@ -6,7 +6,7 @@
 #    By: glafitte <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/25 14:02:08 by glafitte          #+#    #+#              #
-#    Updated: 2014/12/25 15:37:24 by glafitte         ###   ########.fr        #
+#    Updated: 2014/12/25 15:39:45 by glafitte         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ OBJ = $(SRCS:.c=.o)
 
 all : $(NAME)
 
-$(NAME) : $(OBJ)
+$(NAME) :
 	@make -C $(LIBFT) fclean
 	@make -C $(LIBFT)
 	gcc $(CFLAGS) -c $(SRCS)
