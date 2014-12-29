@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/09/04 08:16:28 by glafitte          #+#    #+#             */
-/*   Updated: 2014/12/29 16:17:11 by glafitte         ###   ########.fr       */
+/*   Updated: 2014/12/29 20:16:20 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ typedef struct			s_param
 	struct s_param		*next;
 }						t_param;
 
-int						ft_printf(const char *fmt, ...);
 void					ft_putstr(char const *s);
 void					ft_putchar(char c);
 int						ft_strcmp(char const *s1, char const *s2);
