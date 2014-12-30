@@ -6,39 +6,28 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/17 11:24:05 by glafitte          #+#    #+#             */
-/*   Updated: 2014/11/17 15:52:13 by glafitte         ###   ########.fr       */
+/*   Updated: 2014/12/30 20:49:25 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
-#include <stdlib.h>
 
-char	*ft_strrep(char *str, char const *sub, char const *rep, int recursive)
+char *ft_strstr(const char *s1, const char *s2)
 {
-	char	*result;
-	char	*pos1;
-	char	*pos;
-	int		f;
+	size_t	len;
+	char	*str;
 
-	f = 0;
-	pos = str;
-	while ((pos = ft_strstr(pos, sub)) && f++)
-		pos += ft_strlen(sub);
-	f = ((ft_strlen(str) - (ft_strlen(sub) * f)) + (ft_strlen(rep) * f)) + 1;
-	result = (char *)ft_memalloc(f);
-	pos = str;
-	while ((pos1 = ft_strstr(pos, sub)))
+	if (*s2 == '\0')
+		return ((char *)s1);
+	str = (char *)s1;
+	len = ft_strlen(s2);
+	while (*str)
 	{
-		f = (pos1 - pos);
-		ft_strncat(result, pos, f);
-		ft_strncat(result, rep, ft_strlen(rep));
-		pos = (pos1 + ft_strlen(rep));
-		pos = (pos1 + ft_strlen(sub));
-		if (!recursive)
-			break ;
+		if (*str++ == *s2)
+		{
+			if (!ft_strncmp((const char *)(str - 1), s2, len) == 0)
+				return (str - 1);
+		}
 	}
-	if (pos != (str + ft_strlen(str)))
-		ft_strncat(result, pos, (str - pos));
-	return (result);
+	return (NULL);
 }
