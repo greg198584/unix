@@ -6,14 +6,14 @@
 #    By: glafitte <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/10 13:50:00 by glafitte          #+#    #+#              #
-#    Updated: 2014/11/27 10:47:34 by glafitte         ###   ########.fr        #
+#    Updated: 2014/12/29 16:15:09 by glafitte         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .PHONY: all, clean, fclean, re
 
 NAME = libft.a
-CFLAGS = -g -Wall -Werror -Wextra -O3
+FLAGS = -g -Wall -Werror -Wextra
 SRCS =ft_atoi.c \
 		ft_isalnum.c \
 		ft_isalpha.c \
@@ -73,7 +73,6 @@ SRCS =ft_atoi.c \
 		ft_putnbr_fd.c \
 		\
 		ft_itoa.c \
-		ft_printf.c \
 		get_next_line.c \
 		get_next_line_simple.c \
 		ft_pow.c \

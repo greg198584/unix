@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/20 14:44:10 by glafitte          #+#    #+#             */
-/*   Updated: 2014/11/27 10:47:07 by glafitte         ###   ########.fr       */
+/*   Updated: 2014/12/29 16:16:33 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ char	*ft_char_rem(char *str, char c, int recurs)
 	return (ft_strrep(str, ft_char_to_str(c), REPLACE_EMPTY, recurs));
 }
 
-char	*ft_strtrim_right(char *s, unsigned n)
+char	*ft_strtrim_right(char *s, int n)
 {
 	if (!s || !n || !*s)
 		return (s);
 	return ((n >= ft_strlen(s)) ? "" : ft_strndup(s, ft_strlen(s) - n));
 }
 
-char	*ft_strtrim_left(char *s, unsigned n)
+char	*ft_strtrim_left(char *s, int n)
 {
 	if (!s || !n || !*s)
 		return (s);

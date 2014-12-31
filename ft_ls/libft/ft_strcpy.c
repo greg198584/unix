@@ -6,14 +6,19 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 17:00:38 by glafitte          #+#    #+#             */
-/*   Updated: 2014/11/05 09:38:16 by glafitte         ###   ########.fr       */
+/*   Updated: 2014/12/30 18:44:13 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dst, const char *src)
+#include "libft.h"
+
+char	*ft_strcpy(char *s1, const char *s2)
 {
-	while ((*dst++ = *src++))
+	char	*s;
+
+	s = s1;
+	while ((*s++ = *s2++) != 0)
 		continue ;
-	*dst++ = '\0';
-	return (dst);
+	ft_strclr(s);
+	return (s1);
 }

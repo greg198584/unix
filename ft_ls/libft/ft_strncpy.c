@@ -6,19 +6,23 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 17:02:55 by glafitte          #+#    #+#             */
-/*   Updated: 2014/11/04 17:10:05 by glafitte         ###   ########.fr       */
+/*   Updated: 2014/12/29 21:51:42 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strncpy(char *dest, const char *src, unsigned int n)
-{
-	unsigned int count;
+#include <string.h>
+#include <stdlib.h>
 
-	count = 0;
-	while (src[count] && count < n)
-	{
-		dest[count] = src[count];
-		count++;
-	}
-	return (dest);
+char	*ft_strncpy(char *s1, const char *s2, size_t n)
+{
+	char	*s;
+
+	s = s1;
+	n++;
+	while (--n > 0 && *s2 != '\0')
+		*s++ = *s2++;
+	n++;
+	while (--n > 0)
+		*s++ = '\0';
+	return (s1);
 }
