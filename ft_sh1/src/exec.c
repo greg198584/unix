@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 16:41:17 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/01 09:45:30 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/01 22:56:59 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ static char	*ft_access(char *str, char *path)
 	while (arg[++i] != NULL)
 	{
 		exec = ft_pathfile(arg[i], str);
+		ft_printf("--> exec = [%s]\n", exec);
 		if (access(exec, F_OK | X_OK) != -1)
 		{
 			ft_free_arg(arg);

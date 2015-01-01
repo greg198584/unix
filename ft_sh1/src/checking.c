@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 16:14:05 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/01 16:43:32 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/01 22:49:32 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int			ft_check(char *str, t_env *env)
 	{
 		if (res != 43)
 			ft_free_arg(arg);
-		return (res);
+		return (res - 1);
 	}
 	else
 		(void)ft_exec(env, arg, ft_find_element(env, "PATH"));
