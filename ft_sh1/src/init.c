@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 15:49:28 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/01 13:08:32 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/01 16:43:35 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ void		ft_init(char *str)
 		str[i] = '\0';
 }
 
-void		ft_prompt(t_env *env, char change)
+void		ft_prompt(t_env *env, int change)
 {
 	char	*pwd;
 	char	*user;
 
 	user = ft_set_var(env, "USER");
-	if (change)
+	if (change != 0)
 		pwd = ft_set_pwd(env);
 	else
 		pwd = ft_set_var(env, "PWD");

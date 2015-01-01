@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 16:23:10 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/01 12:59:27 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/01 16:44:16 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,6 @@ char		*ft_pwd()
 	char	*pwd;
 
 	pwd = ft_return_pwd();
-	ft_printf("valeur de ft_pwd : %s\n", pwd);
 	if (chdir(pwd) == -1)
 		ft_error("Repertoire introuvable  pwd.c: ligne 107\n", "error");
 	return (pwd);

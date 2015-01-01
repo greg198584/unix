@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 14:11:08 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/01 12:15:35 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/01 16:49:45 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,13 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-int	main(int argc, char **argv, char **env)
+void	ft_clean(t_env *env)
+{
+	ft_free_list(env);
+	exit(EXIT_SUCCESS);
+}
+
+int		main(int argc, char **argv, char **env)
 {
 	char	buff[BUFF + 1];
 	t_env	*list;
@@ -35,8 +41,8 @@ int	main(int argc, char **argv, char **env)
 			ft_puterror("erreur: commande trop grande !\n");
 		buff[len != 0 ? len - 1 : len] = '\0';
 		ret = ft_check(buff, list);
-		if (ret == 42)
-			return (EXIT_SUCCESS);
+		if (ret == 3)
+			ft_clean(list);
 		ft_prompt(list, ret);
 		(void)ft_signal();
 		ft_init(&buff[0]);

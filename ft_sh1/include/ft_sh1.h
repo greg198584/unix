@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/24 14:30:12 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/01 11:47:34 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/01 16:40:02 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void				ft_error(const char *error, const char *var);
 char				ft_env_error(char *env, char type, int pos);
 int					ft_cd(t_env *env, char **arr);
 void				ft_init(char *str);
-void				ft_prompt(t_env *env, char change);
+void				ft_prompt(t_env *env, int change);
 char				ft_signal();
 void				ft_display_lst(t_env *lst, char type);
 void				ft_add_element(t_env **list, char *val, char *start);

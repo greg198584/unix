@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 16:14:05 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/01 12:16:00 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/01 16:43:32 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static int	ft_checking_opt(char **arg, t_env *env)
 int			ft_check(char *str, t_env *env)
 {
 	char	**arg;
-	char	res;
+	int		res;
 
 	arg = ft_str_to_wordtab(str, ' ', '\t');
 	if (arg == NULL || arg[0] == NULL)
@@ -46,10 +46,10 @@ int			ft_check(char *str, t_env *env)
 	{
 		if (res != 43)
 			ft_free_arg(arg);
-		return (res - 1);
+		return (res);
 	}
 	else
 		(void)ft_exec(env, arg, ft_find_element(env, "PATH"));
 	ft_free_arg(arg);
-	return (0);
+	return (1);
 }
