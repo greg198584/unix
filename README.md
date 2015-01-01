@@ -13,6 +13,3 @@ FT_SH_1 [ En cours ... ]
   manque setenv et unsetenv.
   
   problem avec la fonction exit: voir commit pour plus de detail de l'avancement.
-  
-  
-glafitte
