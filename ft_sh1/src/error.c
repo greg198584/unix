@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 15:40:58 by glafitte          #+#    #+#             */
-/*   Updated: 2014/12/31 16:34:08 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/01 11:19:07 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,6 @@ char	ft_env_error(char *env, char type, int pos)
 
 char	ft_conf(char *cmd)
 {
-	ft_printf("Si %s", cmd);
-	ft_putstr_fd("' n'est pas une faute de frappe utiliser la commande ", 2);
-	ft_putstr_fd(" not found pour voir ce qu'il contient:\n\tconf ", 2);
-	ft_putendl_fd(cmd, 2);
+	ft_printf("ft_minishell: commande invalide: %s\n", cmd);
 	return (-1);
 }

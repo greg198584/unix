@@ -6,14 +6,14 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 16:39:07 by glafitte          #+#    #+#             */
-/*   Updated: 2014/12/31 16:03:32 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/01 11:47:39 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ft_sh1.h>
 #include <stdlib.h>
 
-void	ft_free_arg(char **arg)
+int		ft_free_arg(char **arg)
 {
 	int	i;
 
@@ -24,9 +24,10 @@ void	ft_free_arg(char **arg)
 			free(arg[i]);
 		free(arg);
 	}
+	return (1);
 }
 
-void	ft_free_list(t_env *list)
+int		ft_free_list(t_env *list)
 {
 	t_env	*tmp;
 	t_env	*next;
@@ -40,4 +41,5 @@ void	ft_free_list(t_env *list)
 		tmp = next;
 	}
 	free(list);
+	return (1);
 }

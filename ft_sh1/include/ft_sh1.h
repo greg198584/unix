@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/24 14:30:12 by glafitte          #+#    #+#             */
-/*   Updated: 2014/12/31 15:59:09 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/01 11:47:34 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,12 @@ char				*ft_set_var(t_env *env, char *code);
 char				*ft_set_pwd(t_env *env);
 void				ft_init_env(t_env *lst);
 char				**ft_str_to_wordtab(char *path, char end, char end1);
-void				ft_free_arg(char **arg);
-void				ft_free_list(t_env *list);
 char				ft_exec(t_env *env, char **exec_opt, char *path);
 int					ft_check(char *str, t_env *env);
 void				ft_putstr_color(const char *str, const char *color, int i);
 int					ft_exit(t_env *env, char **arg);
 int					ft_print_pwd(t_env *env, char **arg);
+int					ft_free_list(t_env *list);
+int					ft_free_arg(char **arg);
 
 #endif

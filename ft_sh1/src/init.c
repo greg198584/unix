@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 15:49:28 by glafitte          #+#    #+#             */
-/*   Updated: 2014/12/29 14:36:07 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/01 13:08:32 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void		ft_prompt(t_env *env, char change)
 
 	user = ft_set_var(env, "USER");
 	if (change)
-		pwd = ft_pwd(env);
+		pwd = ft_set_pwd(env);
 	else
 		pwd = ft_set_var(env, "PWD");
 	if (user != NULL)

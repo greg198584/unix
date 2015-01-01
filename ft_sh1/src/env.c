@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 16:21:10 by glafitte          #+#    #+#             */
-/*   Updated: 2014/12/31 15:59:23 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/01 14:19:14 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_set_var(t_env *env, char *code)
 {
 	char	*var;
-
+	
 	var = ft_find_element(env, code);
 	return (var);
 }
