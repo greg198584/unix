@@ -15,3 +15,4 @@ FT_SH_1 [ En cours ... ]
   problem avec la fonction exit: voir commit pour plus de detail de l'avancement.
   
   
+glafitte
