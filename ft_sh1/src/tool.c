@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 16:08:35 by glafitte          #+#    #+#             */
-/*   Updated: 2014/12/29 13:14:08 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/03 19:10:30 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ static int	ft_strlen_wp(const char *str, char end, char end1)
 {
 	int		i;
 
-	i = -1;
-	while (str[++i] && str[i] != end && str[i] != end1);
+	i = 0;
+	while (str[i] && str[i] != end && str[i] != end1)
+		i++;
 	return (i);
 }
 
@@ -59,25 +60,26 @@ static	int	ft_strdup_wp(char *cpy, const char *src, char end, char end1)
 	return (j);
 }
 
-char	**ft_str_to_wordtab(char *path, char end, char end1)
+char		**ft_str_to_wordtab(char *path, char end, char end1)
 {
 	char	**array;
-	int	size;
-	int	i;
-	int	j;
+	int		size;
+	int		i;
+	int		j;
 
 	size = ft_nbr_words(path, end, end1);
 	if (size == 0)
 		return (NULL);
 	if ((array = malloc(sizeof(char *) * (size + 1))) == NULL)
-		ft_puterror("error: problem to malloc array in my_str_to_wordtab.c: l91\n");
+		ft_puterror("erreur: allocation memoire tool.c ligne 73\n");
 	i = 0;
 	j = -1;
 	while (path[i])
 	{
-		if ((array[++j] = malloc(sizeof(char) * ft_strlen_wp(&path[i], end, end1)))
+		if ((array[++j] = malloc(sizeof(char) *
+			ft_strlen_wp(&path[i], end, end1)))
 				== NULL)
-			ft_puterror("error: problem to malloc in my_str_to_wordtab.c: l98!\n");
+			ft_puterror("erreur: allocation memoire tool.c ligne 80\n");
 		i += ft_strdup_wp(array[j], &path[i], end, end1);
 		i = (path[i] == '\0') ? i : i + 1;
 	}

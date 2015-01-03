@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 15:40:58 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/02 22:23:17 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/03 12:14:14 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,9 @@ char	ft_env_error(char *env, char type, int pos)
 	return (-1);
 }
 
-int		ft_notfound(char *cmd)
+int		ft_notfound(char *arg)
 {
-	ft_printf("ft_minishell: commande introuvable: %s\n", cmd);
-	return (-1);
+	ft_putendl_fd("ft_minishell: commande introuvable", 2);
+	ft_putendl_fd(arg, 2);
+	return (1);
 }

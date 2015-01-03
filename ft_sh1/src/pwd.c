@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 16:23:10 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/01 16:44:16 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/03 19:52:22 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ static char		*ft_find_dir(DIR *dir, struct stat *cur)
 {
 	struct dirent	*dirent;
 	struct stat		tmp;
-	int				found;
 	char			*found_dir;
+	int				found;
 
 	found = 0;
 	while (!found && (dirent = readdir(dir)) != NULL)
@@ -36,32 +36,32 @@ static char		*ft_find_dir(DIR *dir, struct stat *cur)
 		ft_puterror("erreur: strdup dans pwd.c: ligne 36\n");
 	if (closedir(dir) == -1)
 	{
-		ft_puterror("erreur: erreur lors de la fermeture du dossier pwd.c: "); 
+		ft_puterror("erreur: erreur lors de la fermeture du dossier pwd.c: ");
 		ft_puterror("ligne 38\n");
 	}
 	if (!found)
-		ft_puterror("error: unable to find the current dir in my_pwd: l41!\n");
+		ft_puterror("erreur: impossible a trouver repertoire\n");
 	return (found_dir);
 }
 
-static DIR	*ft_init_pwd(struct stat *current, struct stat *parent)
+static DIR		*ft_init_pwd(struct stat *cur, struct stat *parent)
 {
-	DIR		*dir;
+	DIR	*d;
 
-	if (lstat(".", current) != 0)
+	if (lstat(".", cur) != 0)
 		ft_puterror("error: lstat dossier courant pwd.c: ligne 50!\n");
 	chdir("..");
 	if (lstat(".", parent) != 0)
 		ft_puterror("erreur: lstat dossier parent pwd.c: ligne 53\n");
-	if (!(dir = opendir(".")))
+	if (!(d = opendir(".")))
 		ft_puterror("erreur: ouverture de dossier  pwd.c: ligne 55\n");
-	return (dir);
+	return (d);
 }
 
-static char	*ft_new_dir(char *found_dir, char *current_dir)
+static char		*ft_new_dir(char *found_dir, char *current_dir)
 {
-	int		len;
-	int		len2;
+	int	len;
+	int	len2;
 
 	len = ft_strlen(current_dir);
 	if (len != 1)
@@ -77,13 +77,13 @@ static char	*ft_new_dir(char *found_dir, char *current_dir)
 	return (current_dir);
 }
 
-static char	*ft_return_pwd()
+static char		*ft_return_pwd(void)
 {
-	struct stat	cur;
-	struct stat	parent;
-	DIR			*dir;
-	char		*current_dir;
-	char		*found_dir;
+	struct stat		cur;
+	struct stat		parent;
+	DIR				*dir;
+	char			*current_dir;
+	char			*found_dir;
 
 	dir = ft_init_pwd(&cur, &parent);
 	if ((cur.st_dev == parent.st_dev) && (cur.st_ino == parent.st_ino))
@@ -101,7 +101,7 @@ static char	*ft_return_pwd()
 	return (ft_new_dir(found_dir, current_dir));
 }
 
-char		*ft_pwd()
+char			*ft_pwd(void)
 {
 	char	*pwd;
 

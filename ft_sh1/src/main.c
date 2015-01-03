@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 14:11:08 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/02 21:59:02 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/03 18:58:34 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int		main(int argc, char **argv, char **env)
 	t_env	*list;
 	int		len;
 	int		ret;
+
 	(void)argc;
 	(void)argv;
-
 	list = ft_create_list(env);
 	ft_init_env(list);
 	ft_prompt(list, 1);
@@ -40,5 +40,5 @@ int		main(int argc, char **argv, char **env)
 			(void)ft_signal();
 		}
 	}
-	return(len == -1 ? EXIT_SUCCESS : EXIT_SUCCESS);
+	return (len == -1 ? EXIT_FAILURE : EXIT_SUCCESS);
 }

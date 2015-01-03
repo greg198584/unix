@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 16:41:17 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/02 22:23:47 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/03 18:55:01 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ static char		**ft_conv_lst(t_env *env)
 	return (arr);
 }
 
-static char	*ft_pathfile(char *path, char *exec)
+static char		*ft_pathfile(char *path, char *exec)
 {
-	char		*res;
+	char	*res;
 	int		len;
 	int		size;
 
@@ -64,10 +64,10 @@ static char	*ft_pathfile(char *path, char *exec)
 	return (res);
 }
 
-static char	ft_goodpath(char *str)
+static char		ft_goodpath(char *str)
 {
 	int		i;
-	char		path_bin;
+	char	path_bin;
 
 	i = -1;
 	path_bin = 0;
@@ -77,7 +77,7 @@ static char	ft_goodpath(char *str)
 	return (path_bin);
 }
 
-static char	*ft_access(char *str, char *path)
+static char		*ft_access(char *str, char *path)
 {
 	char	**arg;
 	int		i;
@@ -100,16 +100,13 @@ static char	*ft_access(char *str, char *path)
 	return (NULL);
 }
 
-char	ft_exec(t_env *env, char **exec_opt, char *path)
+int				ft_exec(t_env *env, char **exec_opt, char *path)
 {
 	pid_t	pid;
 	int		statut;
 	char	**env_local;
 	char	*exec;
-	char	*opt;
 
-	opt = ft_strdup(exec_opt[0]);
-	ft_printf("valeur de opt = [%s]\n", opt);
 	env_local = ft_conv_lst(env);
 	pid = fork();
 	if (pid == -1)
@@ -118,10 +115,7 @@ char	ft_exec(t_env *env, char **exec_opt, char *path)
 	{
 		if ((exec = ft_access(exec_opt[0], path)) == NULL ||
 				execve(exec, exec_opt, env_local) == -1)
-		{
-			ft_printf("exec = [%s]\n", exec);
-			return (ft_notfound(opt));
-		}
+			ft_notfound(exec);
 	}
 	else
 		wait(&statut);

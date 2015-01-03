@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 15:49:28 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/02 21:59:53 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/03 18:57:06 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void		ft_prompt(t_env *env, int change)
 	ft_putstr_color("$>", RED, 0);
 }
 
-char		ft_signal()
+char		ft_signal(void)
 {
 	if (signal(SIGINT, ft_print) == SIG_ERR)
 		ft_puterror("erreur avec le signal dans init.c\n");

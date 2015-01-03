@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 15:34:00 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/02 22:25:31 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/03 08:22:58 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 int		ft_cd(t_env *env, char **arg)
 {
+	(void)env;
 	if (arg[1] != NULL)
 	{
 		if (access(arg[1], F_OK) == -1)

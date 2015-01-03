@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 16:21:10 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/02 21:54:31 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/03 18:53:41 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 char	*ft_set_var(t_env *env, char *code)
 {
 	char	*var;
-	
+
 	var = ft_find_element(env, code);
 	return (var);
 }
 
 char	*ft_set_pwd(t_env *env)
 {
-	(void)env;
 	char	*pwd;
 
+	(void)env;
 	pwd = ft_pwd();
 	ft_setenv_list(env, "PWD", pwd);
 	return (pwd);
