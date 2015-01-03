@@ -6,13 +6,12 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/13 09:58:55 by glafitte          #+#    #+#             */
-/*   Updated: 2014/12/23 16:17:15 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/03 20:05:02 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 static char	*g_str_save;
 

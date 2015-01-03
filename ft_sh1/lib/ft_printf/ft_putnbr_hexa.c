@@ -6,12 +6,11 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/28 15:46:50 by glafitte          #+#    #+#             */
-/*   Updated: 2014/12/23 12:56:58 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/03 20:03:43 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 unsigned int	ft_putnbr_hexa(char *str, unsigned int nb, char option,
 								t_size *len)

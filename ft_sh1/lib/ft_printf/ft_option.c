@@ -6,12 +6,11 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/09 11:00:58 by glafitte          #+#    #+#             */
-/*   Updated: 2014/12/23 13:45:38 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/03 20:03:02 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 char	*ft_option_hexa(unsigned int nbr, char option, t_size *len)
 {

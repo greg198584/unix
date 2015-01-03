@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/24 14:30:12 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/03 18:59:35 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/03 20:03:31 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include "../lib/libft/libft.h"
 # include "../lib/ft_printf/ft_printf.h"
-
-# include <stdio.h>
 
 # define PATH		"/bin:/sbin:/usr/bin:/usr/sbin"
 # define ENV		"/usr/bin/env"
