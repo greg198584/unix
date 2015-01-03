@@ -6,13 +6,14 @@
 #    By: glafitte <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/10 13:50:00 by glafitte          #+#    #+#              #
-#    Updated: 2014/12/31 09:15:21 by glafitte         ###   ########.fr        #
+#    Updated: 2015/01/03 23:20:25 by glafitte         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .PHONY: all, clean, fclean, re
 
 NAME = libft.a
+CC = gcc
 FLAGS = -g -Wall -Werror -Wextra
 SRCS =ft_atoi.c \
 		ft_isalnum.c \
@@ -89,7 +90,7 @@ OBJ = $(SRCS:.c=.o)
 all : $(NAME)
 
 $(NAME) :
-	@gcc $(FLAGS) -c $(SRCS)
+	@$(CC) $(FLAGS) -c $(SRCS)
 	@ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
