@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/28 12:26:20 by glafitte          #+#    #+#             */
-/*   Updated: 2014/12/23 16:12:58 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/03 23:23:04 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdarg.h>
 # include <stdlib.h>
-# include "libft/libft.h"
+# include "../libft/libft.h"
 
 # define INT_D		'd'
 # define INT_I		'i'
