@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/02 20:52:27 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/03 18:46:34 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/06 10:09:49 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 static int	ft_help(char *cmd)
 {
 	ft_printf("ft_minishell1 : env: illegal option -- %s\n", cmd);
-	ft_putendl("Usage: env [-i] [name=value ...] [utility [argument ...]]");
+	ft_putendl("Usage: env [-i] [name=value ...]");
 	return (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 16:23:10 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/03 19:52:22 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/06 10:14:47 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,22 @@
 #include <stdlib.h>
 #include <dirent.h>
 
-static char		*ft_find_dir(DIR *dir, struct stat *cur)
+static char	*ft_find_dir(DIR *dir, t_stat *cur)
 {
-	struct dirent	*dirent;
+	struct dirent	*direntt;
 	struct stat		tmp;
 	char			*found_dir;
 	int				found;
 
 	found = 0;
-	while (!found && (dirent = readdir(dir)) != NULL)
+	while (!found && (direntt = readdir(dir)) != NULL)
 	{
-		if (lstat(dirent->d_name, &tmp) != 0)
+		if (lstat(direntt->d_name, &tmp) != 0)
 			ft_puterror("erreur: lstat dans pwd.c: ligne 31\n");
 		if ((tmp.st_dev == cur->st_dev) && (tmp.st_ino == cur->st_ino))
 			found = 1;
 	}
-	if ((found_dir = ft_strdup(dirent->d_name)) == NULL)
+	if ((found_dir = ft_strdup(direntt->d_name)) == NULL)
 		ft_puterror("erreur: strdup dans pwd.c: ligne 36\n");
 	if (closedir(dir) == -1)
 	{
@@ -44,7 +44,7 @@ static char		*ft_find_dir(DIR *dir, struct stat *cur)
 	return (found_dir);
 }
 
-static DIR		*ft_init_pwd(struct stat *cur, struct stat *parent)
+static DIR	*ft_init_pwd(struct stat *cur, t_stat *parent)
 {
 	DIR	*d;
 
@@ -58,7 +58,7 @@ static DIR		*ft_init_pwd(struct stat *cur, struct stat *parent)
 	return (d);
 }
 
-static char		*ft_new_dir(char *found_dir, char *current_dir)
+static char	*ft_new_dir(char *found_dir, char *current_dir)
 {
 	int	len;
 	int	len2;
@@ -77,10 +77,10 @@ static char		*ft_new_dir(char *found_dir, char *current_dir)
 	return (current_dir);
 }
 
-static char		*ft_return_pwd(void)
+static char	*ft_return_pwd(void)
 {
-	struct stat		cur;
-	struct stat		parent;
+	t_stat			cur;
+	t_stat			parent;
 	DIR				*dir;
 	char			*current_dir;
 	char			*found_dir;
@@ -101,7 +101,7 @@ static char		*ft_return_pwd(void)
 	return (ft_new_dir(found_dir, current_dir));
 }
 
-char			*ft_pwd(void)
+char		*ft_pwd(void)
 {
 	char	*pwd;
 

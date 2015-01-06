@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/24 14:30:12 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/03 20:03:31 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/06 10:10:52 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../lib/libft/libft.h"
 # include "../lib/ft_printf/ft_printf.h"
+# include <sys/stat.h>
 
 # define PATH		"/bin:/sbin:/usr/bin:/usr/sbin"
 # define ENV		"/usr/bin/env"
@@ -36,6 +37,8 @@ typedef struct		s_opt
 	int				(*func_ptr)(t_env *env, char **arg);
 	char			*key;
 }					t_opt;
+
+typedef struct stat	t_stat;
 
 int					ft_notfound(char *arg);
 void				ft_free_line(char *line);
