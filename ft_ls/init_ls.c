@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/20 16:37:09 by glafitte          #+#    #+#             */
-/*   Updated: 2014/11/27 10:20:14 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/13 16:22:29 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char			*ft_str_to_dir(char const *s1, char const *s2)
 void			ft_perror(char *dir_path)
 {
 	perror(ft_strrep("ft_ls: %s", "%s", dir_path, 0));
-	exit(EXIT_FAILURE);
+	exit(EXIT_FAILURE
 }
 
 static void		ft_checkfiles(t_list *list, int opt)
