@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   manage_list.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/03 16:58:49 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/22 18:59:08 by glafitte         ###   ########.fr       */
+/*   Created: 2015/01/22 17:20:02 by glafitte          #+#    #+#             */
+/*   Updated: 2015/01/22 20:23:26 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "ft_select.h"
 
-int		ft_putchar(int c)
+int	ft_display_list(t_list *list)
 {
-	return(write(1, &c, 1));
+	if (!list)
+		ft_puterror("erreur: liste vide, fin du programme");
+	while (list)
+	{
+		ft_putendl(list->data);
+		list = list->next;
+	}
+	return (0);
 }

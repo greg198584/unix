@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/09/04 08:16:28 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/20 11:58:31 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/22 18:58:52 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct			s_gnlp
 int						ft_abs(int a);
 int						get_next_line(int const fd, char **line);
 void					ft_putstr(char const *s);
-void					ft_putchar(char c);
+int						ft_putchar(int c);
 int						ft_strcmp(char const *s1, char const *s2);
 int						ft_strlen(const char *str);
 void					ft_putnbr(int n);

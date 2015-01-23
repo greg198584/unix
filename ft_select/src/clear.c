@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   clear.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/03 16:58:49 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/22 18:59:08 by glafitte         ###   ########.fr       */
+/*   Created: 2015/01/22 20:31:06 by glafitte          #+#    #+#             */
+/*   Updated: 2015/01/22 20:32:36 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "ft_select.h"
 
-int		ft_putchar(int c)
+int	ft_clear_term(t_termios *term)
 {
-	return(write(1, &c, 1));
+	if (tcgetattr(0, term) == -1)
+		return (-1);
+	term->c_lflag = (ICANON | ECHO);
+	if (tcsetattr(0, 0, term) == -1)
+		return(-1);
+	return (0);
 }
