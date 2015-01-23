@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clear.c                                            :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/22 20:31:06 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/23 11:56:54 by glafitte         ###   ########.fr       */
+/*   Created: 2014/11/03 17:00:08 by glafitte          #+#    #+#             */
+/*   Updated: 2014/12/30 18:53:13 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_select.h"
+#include <string.h>
 
-int	ft_clear_term(t_termios *term)
+int		ft_strcmp(const char *s1, const char *s2)
 {
-	if (tcgetattr(0, term) == -1)
-		return (-1);
-	term->c_lflag = (ICANON | ECHO);
-	if (tcsetattr(0, 0, term) == -1)
-		return(-1);
-	return (0);
-}
-
-int	ft_clear_area(void)
-{
-	char	*res;
-
-	if ((res = tgetstr("cl", NULL)) == NULL)
-		return (-1);
-	tputs(res, 0, ft_putchar);
-	return (0);
+	while (*s1++ == *s2++)
+		if (*(s1 - 1) == '\0')
+			return (0);
+	return (*(unsigned char *)(s1 - 1) - *(unsigned char *)(s2 - 1));
 }

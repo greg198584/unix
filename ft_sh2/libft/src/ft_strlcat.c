@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clear.c                                            :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/22 20:31:06 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/23 11:56:54 by glafitte         ###   ########.fr       */
+/*   Created: 2014/11/05 10:18:14 by glafitte          #+#    #+#             */
+/*   Updated: 2014/11/06 08:51:06 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_select.h"
+#include "libft.h"
 
-int	ft_clear_term(t_termios *term)
+size_t	ft_strlcat(char *dst, const char *src, size_t n)
 {
-	if (tcgetattr(0, term) == -1)
-		return (-1);
-	term->c_lflag = (ICANON | ECHO);
-	if (tcsetattr(0, 0, term) == -1)
-		return(-1);
-	return (0);
-}
+	size_t	len;
+	size_t	src_len;
+	size_t	i;
 
-int	ft_clear_area(void)
-{
-	char	*res;
-
-	if ((res = tgetstr("cl", NULL)) == NULL)
-		return (-1);
-	tputs(res, 0, ft_putchar);
-	return (0);
+	len = ft_strlen(dst);
+	src_len = ft_strlen(src);
+	if (len > n)
+		return (n + src_len);
+	i = 0;
+	while ((i + len < n - 1) && src[i])
+	{
+		dst[len + i] = src[i];
+		i++;
+	}
+	dst[len + i] = '\0';
+	return (len + src_len);
 }

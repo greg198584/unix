@@ -6,42 +6,36 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/19 11:18:07 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/23 09:15:00 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/23 22:44:34 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-static int	ft_check(t_pos *pos)
+t_keyboard ft_touch[]=
 {
-	char	buffer[3];
-	char	*res;
+	{&ft_exit, 4},
+	{&ft_exit, 3},
+	{&ft_space, 32},
+	{&ft_check_move, 27},
+	{NULL, -1}
+};
 
-	(void)pos;
+static int	ft_check(t_pos *pos, t_list *list, t_termios *term)
+{
+	int		res;
+	int 	i;
+
+	i = -1;
 	while (1)
 	{
-		read(0, buffer, 3);
-		if (buffer[0] == 4)
+		read(0, pos->buffer, 3);
+		while (ft_touch[++i].key != -1)
 		{
-			ft_printf("Ctrl+d: fermture du programme");
-			return (0);
-		}
-		if (buffer[0] == 32)
-			ft_putendl("Touche taper: ESP");
-		if (buffer[0] == 'l')
-		{
-			if ((res = tgetstr("cl", NULL)) == NULL)
-				return (-1);
-			tputs(res, 0, ft_putchar);
-		}
-		else if (buffer[0] == 27 && buffer[1] == '['/* && (buffer[2] == 'A' || buffer[2] == 'B')*/)
-		{
-			ft_move_cursor(pos->y);
-			if (buffer[2] == 'A')
-				pos->y =  pos->y == 0 ? 50 : pos->y - 1;
-			else if (buffer[2] == 'B')
-				pos->y = pos->y < 50 ? pos->y + 1 : 0;
-			ft_move_cursor(pos->y);
+			if (i == 5)
+				i = 0;
+			if (ft_touch[i].key == pos->buffer[0])
+				res = (ft_touch[i].func_ptr(pos, list, term));
 		}
 	}
 	return (0);
@@ -63,10 +57,9 @@ int	main(int argc, char **argv, char **env)
 	list = ft_create_list(argc, argv);
 	if ((ft_init_select(name_term, &term)) == -1)
 		ft_puterror("Erreur: init_select");
+	ft_clear_area();
 	ft_display_list(list);
 	ft_move_cursor(0);
-	ft_check(&pos);
-	if((ft_clear_term(&term)) == -1)
-		ft_puterror("Erreur: lors du retablissement du terminal");
+	ft_check(&pos, list, &term);
 	return (0);
 }

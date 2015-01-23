@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clear.c                                            :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/22 20:31:06 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/23 11:56:54 by glafitte         ###   ########.fr       */
+/*   Created: 2014/11/04 11:53:33 by glafitte          #+#    #+#             */
+/*   Updated: 2014/12/30 18:38:34 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_select.h"
+#include "libft.h"
 
-int	ft_clear_term(t_termios *term)
+void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	if (tcgetattr(0, term) == -1)
-		return (-1);
-	term->c_lflag = (ICANON | ECHO);
-	if (tcsetattr(0, 0, term) == -1)
-		return(-1);
-	return (0);
-}
+	const unsigned char *s;
+	unsigned char		*d;
+	char				temp[n];
+	size_t				i;
 
-int	ft_clear_area(void)
-{
-	char	*res;
-
-	if ((res = tgetstr("cl", NULL)) == NULL)
-		return (-1);
-	tputs(res, 0, ft_putchar);
-	return (0);
+	i = -1;
+	d = (unsigned char *)dst;
+	s = (const unsigned char *)src;
+	while (++i < n)
+		*(temp + i) = *(s + i);
+	i = -1;
+	while (++i < n)
+		*(d + i) = *(temp + i);
+	return (dst);
 }

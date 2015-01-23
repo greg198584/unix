@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clear.c                                            :+:      :+:    :+:   */
+/*   ft_get_base.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/22 20:31:06 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/23 11:56:54 by glafitte         ###   ########.fr       */
+/*   Created: 2014/11/29 08:10:11 by glafitte          #+#    #+#             */
+/*   Updated: 2015/01/19 11:14:07 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_select.h"
+#include <ft_printf.h>
 
-int	ft_clear_term(t_termios *term)
+char	*ft_get_base(int n)
 {
-	if (tcgetattr(0, term) == -1)
-		return (-1);
-	term->c_lflag = (ICANON | ECHO);
-	if (tcsetattr(0, 0, term) == -1)
-		return(-1);
-	return (0);
-}
+	int		i;
+	char	*s;
 
-int	ft_clear_area(void)
-{
-	char	*res;
-
-	if ((res = tgetstr("cl", NULL)) == NULL)
-		return (-1);
-	tputs(res, 0, ft_putchar);
-	return (0);
+	i = -1;
+	s = ft_strnew(n + 1);
+	while (++i < n)
+		*(s + i) = (i < 10) ? ('0' + i) : ('A' + (i - 10));
+	return (s);
 }

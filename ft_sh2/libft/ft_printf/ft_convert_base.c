@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clear.c                                            :+:      :+:    :+:   */
+/*   ft_convert_base.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/22 20:31:06 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/23 11:56:54 by glafitte         ###   ########.fr       */
+/*   Created: 2014/11/29 09:43:04 by glafitte          #+#    #+#             */
+/*   Updated: 2015/01/19 11:13:54 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_select.h"
+#include <ft_printf.h>
 
-int	ft_clear_term(t_termios *term)
+char	*ft_conv_base(char *nbr, char *base_from, char *base_to)
 {
-	if (tcgetattr(0, term) == -1)
-		return (-1);
-	term->c_lflag = (ICANON | ECHO);
-	if (tcsetattr(0, 0, term) == -1)
-		return(-1);
-	return (0);
-}
-
-int	ft_clear_area(void)
-{
+	int		i;
+	int		convert;
 	char	*res;
 
-	if ((res = tgetstr("cl", NULL)) == NULL)
-		return (-1);
-	tputs(res, 0, ft_putchar);
-	return (0);
+	i = 0;
+	res = ft_strnew(65);
+	convert = ft_atoi_base(nbr, base_from);
+	while (convert > 0)
+	{
+		res[i++] = base_to[convert % ft_strlen(base_to)];
+		convert /= ft_strlen(base_to);
+	}
+	res[i] = '\0';
+	return (ft_strrev(res));
 }
