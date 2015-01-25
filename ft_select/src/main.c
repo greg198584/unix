@@ -6,50 +6,22 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/19 11:18:07 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/23 22:44:34 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/25 21:25:55 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
-
-t_keyboard ft_touch[]=
-{
-	{&ft_exit, 4},
-	{&ft_exit, 3},
-	{&ft_space, 32},
-	{&ft_check_move, 27},
-	{NULL, -1}
-};
-
-static int	ft_check(t_pos *pos, t_list *list, t_termios *term)
-{
-	int		res;
-	int 	i;
-
-	i = -1;
-	while (1)
-	{
-		read(0, pos->buffer, 3);
-		while (ft_touch[++i].key != -1)
-		{
-			if (i == 5)
-				i = 0;
-			if (ft_touch[i].key == pos->buffer[0])
-				res = (ft_touch[i].func_ptr(pos, list, term));
-		}
-	}
-	return (0);
-}
 
 int	main(int argc, char **argv, char **env)
 {
 	char			*name_term;
 	t_list			*list;
 	struct termios	term;
-	t_pos			pos;
+	t_param			param;
 
 	(void)env;
-	ft_init_pos(pos);
+	ft_init_pos(&param);
+	param.value = 0;
 	if(argc < 2)
 		ft_puterror("Vous n'avez entrer aucun argument");
 	if ((name_term = getenv("TERM")) == NULL)
@@ -60,6 +32,6 @@ int	main(int argc, char **argv, char **env)
 	ft_clear_area();
 	ft_display_list(list);
 	ft_move_cursor(0);
-	ft_check(&pos, list, &term);
+	ft_check(&param, list, &term);
 	return (0);
 }

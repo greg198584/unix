@@ -6,14 +6,15 @@
 #    By: glafitte <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/25 14:02:08 by glafitte          #+#    #+#              #
-#    Updated: 2015/01/23 19:49:35 by glafitte         ###   ########.fr        #
+#    Updated: 2015/01/25 21:26:00 by glafitte         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .PHONY: all, clean, fclean, re
 
 NAME = ft_select
-CFLAGS = -Wall -Wextra -Werror -g -I include/
+WFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g -I include/
 LIBFT = libft/
 CC = gcc
 SRCS =	src/main.c \
@@ -23,6 +24,11 @@ SRCS =	src/main.c \
 		src/clear.c \
 		src/move.c \
 		src/option.c \
+		src/tool.c \
+		src/check.c \
+		src/termcaps.c \
+		src/manage.c \
+		src/cursor.c \
 		\
 
 OBJ = $(SRCS:.c=.o)

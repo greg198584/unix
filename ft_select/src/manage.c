@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   manage.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/03 17:00:08 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/24 10:31:05 by glafitte         ###   ########.fr       */
+/*   Created: 2015/01/24 11:46:40 by glafitte          #+#    #+#             */
+/*   Updated: 2015/01/25 13:38:53 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "ft_select.h"
 
-int		ft_strcmp(const char *s1, const char *s2)
+void	ft_manage_line(char *str, int pos, int type)
 {
-	while (*s1++ == *s2++)
-		if (*(s1 - 1) == '\0')
-			return (0);
-	return (*(unsigned char *)(s1 - 1) - *(unsigned char *)(s2 - 1));
+	int			i;
+
+	i = -1;
+	ft_move_cursor(pos);
+	ft_delete(pos, ft_strlen(str));
+	if (type)
+		ft_start_underline(pos);
+	while (++i < ft_strlen(str))
+		ft_putchar(str[i]);
+	ft_end_underline();
 }

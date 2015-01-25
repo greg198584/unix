@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/22 17:19:50 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/22 20:34:36 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/25 20:20:17 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ int		ft_init_select(char *name_term, t_termios *term)
 	return (0);
 }
 
-int		ft_init_pos(t_pos pos)
+int		ft_init_pos(t_param *p)
 {
-	if ((pos.fd = open("/dev/tty", O_WRONLY, O_NOCTTY)) == -1)
+	if ((p->pos.fd = open("/dev/tty", O_WRONLY, O_NOCTTY)) == -1)
 		ft_puterror("erreur: lors de l'ouverture du fichier!\n");
-	pos.x = 0;
-	pos.y = 0;
+	p->pos.x = 0;
+	p->pos.y = 0;
 	return (0);
 }

@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   tool.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/03 17:00:08 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/24 10:31:05 by glafitte         ###   ########.fr       */
+/*   Created: 2015/01/24 10:20:51 by glafitte          #+#    #+#             */
+/*   Updated: 2015/01/24 10:34:55 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "ft_select.h"
 
-int		ft_strcmp(const char *s1, const char *s2)
+char	ft_cmp_elem(const char *s1, const char *s2, char equal)
 {
-	while (*s1++ == *s2++)
-		if (*(s1 - 1) == '\0')
-			return (0);
-	return (*(unsigned char *)(s1 - 1) - *(unsigned char *)(s2 - 1));
+	int	i;
+
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	if (equal)
+		return (s1[i] == '=' && s2[i] == '\0');
+	return ((s1[i] == s2[i] || s1[i] == ' ' || s1[i] == '\t') && s2[i] == '\0');
 }
