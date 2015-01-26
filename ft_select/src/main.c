@@ -6,12 +6,11 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/19 11:18:07 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/25 21:25:55 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/26 12:35:21 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
-
 int	main(int argc, char **argv, char **env)
 {
 	char			*name_term;
