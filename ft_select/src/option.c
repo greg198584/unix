@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/23 17:59:40 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/26 14:15:47 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/27 12:55:52 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,15 @@ int	ft_exit(t_param *p, t_list *list, t_termios *term)
 
 int	ft_space(t_param *p, t_list *lst, t_termios *term)
 {
+
 	lst->valid = !ft_ret_elt(lst, p->pos.y)->valid == 0 ? lst->valid - 1 :
 		lst->valid + 1;
-	ft_ret_elt(lst, p->pos.y)->valid =
-		!ft_ret_elt(lst, p-> pos.y)->valid;
+	ft_ret_elt(lst, p->pos.y)->valid = !ft_ret_elt(lst, p->pos.y)->valid;
 	ft_manage_line(ft_ret_elt(lst, p->pos.y)->data,
 			p->pos.y, ft_ret_elt(lst, p->pos.y)->valid, 0);
-	p->pos.y = p->pos.y < lst->count ? p->pos.y + 1 : 0;
+	p->pos.y = p->pos.y < p->count ? p->pos.y + 1 : 0;
 	ft_manage_line(ft_ret_elt(lst, p->pos.y)->data,
 			p->pos.y, ft_ret_elt(lst, p->pos.y)->valid, 1);
-	ft_printf("valid = [%c] || pos = [%d]\n", lst->valid, p->pos.y);
 	return (0);
 }
 
@@ -46,7 +45,8 @@ void		ft_remove(void)
 
 int	ft_check_mov(t_param *p, t_list *list, t_termios *term)
 {
-	if (p->buffer[0] == 27 && p->buffer[1] == '[')
+	if (p->buffer[0] == 27 && p->buffer[1] == '[' && p->buffer[2] == 'A' ||
+			p->buffer[2] == 'B')
 	{
 		ft_move_cursor(p->pos.y);
 		if (!p->value)

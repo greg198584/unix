@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/24 11:31:50 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/25 23:29:12 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/27 12:42:27 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,12 @@
 
 void	ft_end_underline()
 {
-	char	*es;
 	char	*me;
 	char	*str;
 
-	es = tgetstr("ue", NULL);
 	me = tgetstr("me", NULL);
-	if ((str = tgoto(es, 0, 0)) == NULL)
+	if ((str = tgoto(me, 0, 0)) == NULL)
 		ft_puterror("erreur: tgoto! : termcaps.c\n");
-	if (tputs(str, 1, ft_putchar) == -1)
-		ft_puterror("erreur: tputs!: termcaps.c\n");
-	str = tgoto(me, 0, 0);
 	if (tputs(str, 1, putchar) == -1)
 		ft_puterror("erreur: tputs!: termcaps.c\n");
 }

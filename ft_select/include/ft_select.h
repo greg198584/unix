@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/20 12:03:01 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/26 13:45:24 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/27 12:41:31 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ typedef struct			s_list
 	char				*data;
 	struct s_list		*next;
 	int					*pos_eleml;
-	int					count;
 	char				valid;
 }						t_list;
 
@@ -48,6 +47,7 @@ typedef struct			s_param
 	int					value;
 	int					width;
 	int					height;
+	int					count;
 }						t_param;
 
 typedef struct			s_keyboard
@@ -62,7 +62,7 @@ void					ft_start_reverse(int y);
 void					ft_visible_cursor(void);
 int						ft_display_list(t_list *list);
 int						ft_init_select(char *name_term, t_termios *term);
-int						ft_init_pos(t_param *p);
+int						ft_init_pos(t_param *p, int argc);
 int						ft_clear_term(t_termios *term);
 void					ft_move_cursor(int j);
 int						ft_clear_area(void);
@@ -80,6 +80,6 @@ void					ft_init_down(t_param *p, t_list *list);
 void					ft_init_up(t_param *p, t_list *list);
 void					ft_delete(int pos, int size);
 char					ft_signal(t_param *p);
-void					ft_manage_line(char *str, int pos, int valid, int type);
+void					ft_manage_line(char *str, int pos, char valid, int type);
 
 #endif

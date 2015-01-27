@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/19 11:18:07 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/26 12:35:21 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/27 09:39:07 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int argc, char **argv, char **env)
 	t_param			param;
 
 	(void)env;
-	ft_init_pos(&param);
+	ft_init_pos(&param, argc);
 	param.value = 0;
 	if(argc < 2)
 		ft_puterror("Vous n'avez entrer aucun argument");
