@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/20 12:03:01 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/27 12:41:31 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/30 17:28:14 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 # include <curses.h>
 # include <errno.h>
 # include <fcntl.h>
+
+# define DEL 0x7F
 
 typedef struct termios	t_termios;
 
@@ -70,7 +72,7 @@ int						ft_check_mov(t_param *p, t_list *list, t_termios *term);
 int						ft_space(t_param *p, t_list *list, t_termios *term);
 int						ft_exit(t_param *p, t_list *list, t_termios *term);
 char					ft_cmp_elem(const char *s1, const char *s2, char equal);
-void					ft_remove_element(t_list **lst, char *value);
+void					ft_remove_element(t_list *lst, char *value);
 t_list					*ft_create_list(int argc, char **argv);
 t_list					*ft_ret_elt(t_list *lst, int pos);
 void					ft_hide_cursor(void);
@@ -80,6 +82,9 @@ void					ft_init_down(t_param *p, t_list *list);
 void					ft_init_up(t_param *p, t_list *list);
 void					ft_delete(int pos, int size);
 char					ft_signal(t_param *p);
-void					ft_manage_line(char *str, int pos, char valid, int type);
+void					ft_manage_line(char *s, int pos, char valid, int type);
+int						ft_remove(t_param *p, t_list *list, t_termios *term);
+int						ft_clear_screen(void);
+void					ft_list_remove(t_list **begin_list, char *data_ref);
 
 #endif

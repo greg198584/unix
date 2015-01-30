@@ -6,23 +6,11 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/24 10:20:51 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/26 12:49:03 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/30 17:31:59 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
-
-char	ft_cmp_elem(const char *s1, const char *s2, char equal)
-{
-	int	i;
-
-	i = 0;
-	while (s1[i] && s2[i] && s1[i] == s2[i])
-		i++;
-	if (equal)
-		return (s1[i] == '=' && s2[i] == '\0');
-	return ((s1[i] == s2[i] || s1[i] == ' ' || s1[i] == '\t') && s2[i] == '\0');
-}
 
 void	ft_delete(int pos, int size)
 {
@@ -41,6 +29,7 @@ void	ft_delete(int pos, int size)
 		i += 1;
 	}
 }
+
 static void	ft_recup_signal(int signal)
 {
 	(void)signal;

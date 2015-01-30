@@ -6,13 +6,13 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/22 17:20:02 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/25 21:22:30 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/30 17:31:51 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-int	ft_display_list(t_list *list)
+int		ft_display_list(t_list *list)
 {
 	while (list)
 	{
@@ -22,21 +22,21 @@ int	ft_display_list(t_list *list)
 	return (0);
 }
 
-void	ft_remove_element(t_list **lst, char *value)
+void ft_list_remove(t_list **begin_list, char *data_ref)
 {
-	t_list	*tmp;
+	t_list *list_ptr;
 
-	tmp = (*lst)->next;
-	while (tmp != (*lst) && !ft_cmp_elem(tmp->data, value, 1))
-		tmp = tmp->next;
-	if (tmp != (*lst))
+	list_ptr = *begin_list;
+	while (list_ptr)
 	{
-		tmp->next = tmp->next;
-		free(tmp);
+		if (ft_strcmp(list_ptr->data, data_ref) == 0)
+			list_ptr->next = list_ptr->next->next;
+		free(list_ptr);
 	}
+	list_ptr = list_ptr->next;
 }
 
-t_list		*ft_ret_elt(t_list *lst, int pos)
+t_list	*ft_ret_elt(t_list *lst, int pos)
 {
 	t_list	*tmp;
 
