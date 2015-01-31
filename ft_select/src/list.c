@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/22 17:19:56 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/27 09:37:06 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/31 14:06:18 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ static t_list	*ft_create_element(char *str)
 	{
 		tmp->data = str;
 		tmp->valid = 0;
+		tmp->size = ft_strlen(str);
 		tmp->next = NULL;
+		tmp->prev = NULL;
 	}
 	return (tmp);
 }
@@ -38,6 +40,7 @@ static void		ft_add_list(t_list **list, char *str)
 		while(tmp->next)
 			tmp = tmp->next;
 		tmp->next = ft_create_element(str);
+		tmp->next->prev = tmp;
 	}
 	else
 		*list = ft_create_element(str);
@@ -54,7 +57,5 @@ t_list			*ft_create_list(int argc, char **argv)
 	list = NULL;
 	while(i++ < argc - 1)
 		ft_add_list(&list, argv[i]);
-	//list->count = argc - 2;
-	list->valid = 0;
 	return (list);
 }

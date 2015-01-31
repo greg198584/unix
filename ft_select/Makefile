@@ -6,7 +6,7 @@
 #    By: glafitte <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/25 14:02:08 by glafitte          #+#    #+#              #
-#    Updated: 2015/01/26 13:09:51 by glafitte         ###   ########.fr        #
+#    Updated: 2015/01/31 13:43:32 by glafitte         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRCS =	src/main.c \
 		src/tool.c \
 		src/check.c \
 		src/termcaps.c \
+		src/termcaps_clean.c \
 		src/manage.c \
 		src/cursor.c \
 		\

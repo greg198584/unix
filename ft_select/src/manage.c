@@ -6,13 +6,13 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/24 11:46:40 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/30 10:13:02 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/31 13:44:44 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-void	ft_manage_line(char *s, int pos, char valid, int type)
+void	ft_line(char *s, int pos, char valid, int type)
 {
 	int	i;
 

@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/24 11:11:20 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/30 16:46:01 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/01/31 13:42:38 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ t_keyboard ft_touch[]=
 	{&ft_exit, 4},
 	{&ft_exit, 3},
 	{&ft_space, 32},
-	{&ft_check_mov, 27},
-	{&ft_remove, 127},
+	{&ft_move, 27},
+	{&ft_del, 127},
 	{NULL, -1}
 };
 
