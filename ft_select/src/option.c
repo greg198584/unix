@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/23 17:59:40 by glafitte          #+#    #+#             */
-/*   Updated: 2015/02/05 09:25:53 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/02/05 17:03:22 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,26 @@ int	ft_exit(t_param *p, t_list *list, t_termios *term)
 		ft_puterror("Erreur: lors du retablissement du terminal");
 	exit(EXIT_SUCCESS);
 	return (0);
+}
+
+int	ft_enter(t_param *p, t_list *list, t_termios *term)
+{
+	t_list	*tmp;
+	int		i;
+
+	i = 0;
+	tmp = list->next;
+	ft_clear_area();
+	ft_putendl("--> [ liste selectionner ] <---\n");
+	while (i < p->count + 1)
+	{
+		if (tmp->valid)
+			ft_printf("[%s]  ", tmp->data);
+		tmp = tmp->next;
+		i++;
+	}
+	ft_putendl("\n\n-------------------------------");
+	ft_exit(p, list, term);
 }
 
 int	ft_del(t_param *p, t_list *list, t_termios *term)
@@ -44,20 +64,12 @@ int	ft_move(t_param *p, t_list *list, t_termios *term)
 			ft_init_down(p, list);
 		else if (p->buffer[2] == 'B')
 			ft_init_up(p, list);
-		ft_line(ft_ret_elt(list, p->pos.y)->data, p->pos.y, 0, 1);
+		ft_line(ft_ret_elt(list, p->pos.y)->data, p->pos.y,
+				ft_ret_elt(list, p->pos.y)->valid, 1);
 	}
 	return (0);
 }
-/*
-int	ft_enter(t_param *p, t_list *list, t_termios *term)
-{
-	t_list	*tmp;
 
-	tmp = list;
-	while (tmp->next !=)
-	return (0);
-}
-*/
 int	ft_space(t_param *p, t_list *lst, t_termios *term)
 {
 	lst->valid = !ft_ret_elt(lst, p->pos.y)->valid == 0 ? lst->valid - 1 :
@@ -67,6 +79,6 @@ int	ft_space(t_param *p, t_list *lst, t_termios *term)
 			p->pos.y, ft_ret_elt(lst, p->pos.y)->valid, 1);
 	p->pos.y = p->pos.y < p->count ? p->pos.y + 1 : 0;
 	ft_line(ft_ret_elt(lst, p->pos.y)->data,
-			p->pos.y, ft_ret_elt(lst, p->pos.y)->valid, 0);
+			p->pos.y, ft_ret_elt(lst, p->pos.y)->valid, 1);
 	return (0);
 }

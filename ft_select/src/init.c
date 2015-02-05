@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/22 17:19:50 by glafitte          #+#    #+#             */
-/*   Updated: 2015/02/05 09:42:45 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/02/05 16:21:04 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int		ft_init_pos(t_param *p, int argc)
 {
 	if ((p->pos.fd = open("/dev/tty", O_WRONLY, O_NOCTTY)) == -1)
 		ft_puterror("erreur: lors de l'ouverture du fichier!\n");
-	p->pos.x = 0;
 	p->pos.y = 0;
 	p->count = argc - 2;
 	return (0);

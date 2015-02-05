@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/19 11:18:07 by glafitte          #+#    #+#             */
-/*   Updated: 2015/02/05 09:38:35 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/02/05 14:43:16 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int	main(int argc, char **argv, char **env)
 		ft_puterror("Erreur: init_select");
 	ft_clear_area();
 	ft_display_list(list);
-	ft_printf("----> valeur de count = [%d]\n", param.count);
 	ft_move_cursor(0);
 	ft_check(&param, list, &term);
 	return (0);

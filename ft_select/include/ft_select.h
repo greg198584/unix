@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/20 12:03:01 by glafitte          #+#    #+#             */
-/*   Updated: 2015/02/05 09:26:35 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/02/05 15:13:08 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ typedef struct				s_keyboard
 }							t_keyboard;
 
 void						ft_visible_cursor(void);
-int							ft_display_list(t_list *list);
 int							ft_init_select(char *name_term, t_termios *term);
 int							ft_init_pos(t_param *p, int argc);
 void						ft_move_cursor(int j);
@@ -90,5 +89,8 @@ void						ft_start_underline(int y);
 void						ft_delete_char(int j, int size);
 void						ft_list_remove(t_param *p,  t_list **list, int pos);
 void						ft_line(char *s, int pos, char valid, int type);
+int							ft_display_list(t_list *list);
+void						ft_add_list(t_list **list, char *str);
+int							ft_enter(t_param *p, t_list *list, t_termios *term);
 
 #endif
