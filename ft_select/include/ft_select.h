@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/20 12:03:01 by glafitte          #+#    #+#             */
-/*   Updated: 2015/02/02 18:24:07 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/02/05 09:26:35 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef struct				s_pos
 
 typedef struct				s_param
 {
-	char					buffer[4];
+	char					buffer[3];
 	t_pos					pos;
 	int						value;
 	int						width;
@@ -82,13 +82,13 @@ void						ft_init_down(t_param *p, t_list *list);
 void						ft_init_up(t_param *p, t_list *list);
 char						ft_signal(t_param *p);
 int							ft_del(t_param *p, t_list *list, t_termios *term);
-void						ft_list_remove(t_list **list, int pos);
 void						ft_clear_list(t_list *list, int pos);
-void						ft_line(char *s, int pos, char valid, int type);
 int							ft_clear_term(t_termios *term);
 void						ft_end_underline();
 void						ft_start_reverse(int y);
 void						ft_start_underline(int y);
 void						ft_delete_char(int j, int size);
+void						ft_list_remove(t_param *p,  t_list **list, int pos);
+void						ft_line(char *s, int pos, char valid, int type);
 
 #endif

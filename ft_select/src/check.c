@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/24 11:11:20 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/31 13:42:38 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/02/05 09:36:58 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,17 @@ int	ft_check(t_param *p, t_list *list, t_termios *term)
 
 	i = -1;
 	ft_hide_cursor();
-	//ft_visible_cursor();
 	while (1)
 	{
 		ft_signal(p);
-		read(0, p->buffer, 4);
+		read(0, p->buffer, 3);
 		while (ft_touch[++i].key != -1)
 		{
+			/*if (p->count == 0)
+			{
+				ft_clear_area();
+				ft_puterror("Erreur: votre liste est maintenant vide !");
+			}*/
 			if (i == 6)
 				i = 0;
 			if (ft_touch[i].key == p->buffer[0])

@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/23 17:59:40 by glafitte          #+#    #+#             */
-/*   Updated: 2015/02/02 18:28:48 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/02/05 09:25:53 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,10 @@ int	ft_exit(t_param *p, t_list *list, t_termios *term)
 
 int	ft_del(t_param *p, t_list *list, t_termios *term)
 {
-	//ft_delete_char(p->pos.y, ft_strlen(ft_ret_elt(list, p->pos.y)->data));
-	ft_list_remove(&list, p->pos.y);
-	p->count -= 1;
+	ft_list_remove(p, &list, p->pos.y);
 	p->pos.y = p->pos.y < p->count ? p->pos.y + 1 : 0;
 	ft_clear_area();
 	ft_display_list(list);
-	//ft_line(ft_ret_elt(list, p->pos.y)->data, p->pos.y, ft_ret_elt(list, p->pos.y)->valid, 0);
 }
 
 int	ft_move(t_param *p, t_list *list, t_termios *term)
@@ -51,7 +48,16 @@ int	ft_move(t_param *p, t_list *list, t_termios *term)
 	}
 	return (0);
 }
+/*
+int	ft_enter(t_param *p, t_list *list, t_termios *term)
+{
+	t_list	*tmp;
 
+	tmp = list;
+	while (tmp->next !=)
+	return (0);
+}
+*/
 int	ft_space(t_param *p, t_list *lst, t_termios *term)
 {
 	lst->valid = !ft_ret_elt(lst, p->pos.y)->valid == 0 ? lst->valid - 1 :
