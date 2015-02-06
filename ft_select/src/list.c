@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/22 17:19:56 by glafitte          #+#    #+#             */
-/*   Updated: 2015/02/05 15:29:13 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/02/06 09:30:26 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void			ft_add_list(t_list **list, char *str)
 		head->prev = tmp->next;
 	}
 	else
-		*list = ft_create_element(str);
+		*list = ft_create_element("----[ ft_select ]----");
 }
 
 t_list			*ft_create_list(int argc, char **argv)

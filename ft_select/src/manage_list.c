@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/22 17:20:02 by glafitte          #+#    #+#             */
-/*   Updated: 2015/02/05 15:31:48 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/02/06 09:31:32 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,7 @@ void	ft_list_remove(t_param *p,  t_list **list, int pos)
 
 	tmp = (*list);
 	if (pos == 0)
-	{
-		if(tmp->next != tmp)
-		{
-			ft_del_element(tmp);
-			(*list) = tmp;
-			return ;
-		}
-	}
+		return ;
 	if (pos > 0)
 	{
 		while (pos > 0)
