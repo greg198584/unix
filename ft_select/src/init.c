@@ -6,14 +6,19 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/22 17:19:50 by glafitte          #+#    #+#             */
-/*   Updated: 2015/02/05 16:21:04 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/02/06 10:06:49 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-int		ft_init_select(char *name_term, t_termios *term)
+int		ft_init_select(t_param *p, char *name_term, t_termios *term)
 {
+	t_winsize	w;
+
+	ioctl(0, TIOCGWINSZ, &w);
+	p->width = w.ws_row;
+	p->height = w.ws_col;
 	if (tgetent(NULL, name_term) == ERR)
 		return (-1);
 	if (tcgetattr(0, term) == -1)

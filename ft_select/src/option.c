@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/23 17:59:40 by glafitte          #+#    #+#             */
-/*   Updated: 2015/02/05 17:03:22 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/02/06 11:14:33 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ int	ft_del(t_param *p, t_list *list, t_termios *term)
 
 int	ft_move(t_param *p, t_list *list, t_termios *term)
 {
+	if (p->buffer[0] == 27 && p->buffer[1] == 0)
+		ft_exit(p, list, term);
 	if (p->buffer[0] == 27 && p->buffer[1] == '[' && p->buffer[2] == 'A' ||
 			p->buffer[2] == 'B')
 	{
@@ -66,6 +68,7 @@ int	ft_move(t_param *p, t_list *list, t_termios *term)
 			ft_init_up(p, list);
 		ft_line(ft_ret_elt(list, p->pos.y)->data, p->pos.y,
 				ft_ret_elt(list, p->pos.y)->valid, 1);
+		ft_refresh_buff(p);
 	}
 	return (0);
 }
@@ -77,8 +80,6 @@ int	ft_space(t_param *p, t_list *lst, t_termios *term)
 	ft_ret_elt(lst, p->pos.y)->valid = !ft_ret_elt(lst, p->pos.y)->valid;
 	ft_line(ft_ret_elt(lst, p->pos.y)->data,
 			p->pos.y, ft_ret_elt(lst, p->pos.y)->valid, 1);
-	p->pos.y = p->pos.y < p->count ? p->pos.y + 1 : 0;
-	ft_line(ft_ret_elt(lst, p->pos.y)->data,
-			p->pos.y, ft_ret_elt(lst, p->pos.y)->valid, 1);
+	p->pos.y = p->pos.y < p->count - 1 ? p->pos.y + 1 : 0;
 	return (0);
 }

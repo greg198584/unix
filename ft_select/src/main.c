@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/19 11:18:07 by glafitte          #+#    #+#             */
-/*   Updated: 2015/02/05 14:43:16 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/02/06 11:15:56 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,14 @@ int	main(int argc, char **argv, char **env)
 	if ((name_term = getenv("TERM")) == NULL)
 		return (-1);
 	list = ft_create_list(argc, argv);
-	if ((ft_init_select(name_term, &term)) == -1)
+	if ((ft_init_select(&param, name_term, &term)) == -1)
 		ft_puterror("Erreur: init_select");
+	//ft_printf("valeur de width  = [ %d ]\n", param.width);
+	//ft_printf("valeur de height = [ %d ]\n", param.height);
 	ft_clear_area();
 	ft_display_list(list);
 	ft_move_cursor(0);
+	ft_refresh_buff(&param);
 	ft_check(&param, list, &term);
 	return (0);
 }

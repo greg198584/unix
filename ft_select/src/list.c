@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/22 17:19:56 by glafitte          #+#    #+#             */
-/*   Updated: 2015/02/06 09:30:26 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/02/06 10:47:07 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,6 @@ t_list			*ft_create_list(int argc, char **argv)
 	list = NULL;
 	while(i++ < argc - 1)
 		ft_add_list(&list, argv[i]);
+	ft_add_list(&list, "---[ FIN DE LISTE ]---");
 	return (list);
 }
