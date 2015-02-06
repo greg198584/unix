@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/24 11:11:20 by glafitte          #+#    #+#             */
-/*   Updated: 2015/02/06 12:50:19 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/02/06 15:36:10 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_check(t_param *p, t_list *list, t_termios *term)
 	ft_hide_cursor();
 	while (1)
 	{
-		ft_signal_rs(p);
+		ft_ret_resize(p);
 		read(0, p->buffer, 3);
 		while (ft_touch[++i].key != -1)
 		{
@@ -46,6 +46,7 @@ int	ft_check(t_param *p, t_list *list, t_termios *term)
 			if (ft_touch[i].key == p->buffer[0])
 				res = (ft_touch[i].func_ptr(p, list, term));
 		}
+		ft_signal();
 	}
 	return (0);
 }

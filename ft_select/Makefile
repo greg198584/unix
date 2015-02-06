@@ -6,7 +6,7 @@
 #    By: glafitte <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/25 14:02:08 by glafitte          #+#    #+#              #
-#    Updated: 2015/02/02 17:22:15 by glafitte         ###   ########.fr        #
+#    Updated: 2015/02/06 15:30:55 by glafitte         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRCS =	src/main.c \
 		src/termcaps.c \
 		src/manage.c \
 		src/cursor.c \
+		src/signal.c \
 		\
 
 OBJ = $(SRCS:.c=.o)

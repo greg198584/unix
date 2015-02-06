@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tool.c                                             :+:      :+:    :+:   */
+/*   signal.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/24 10:20:51 by glafitte          #+#    #+#             */
-/*   Updated: 2015/02/06 15:05:44 by glafitte         ###   ########.fr       */
+/*   Created: 2015/02/06 15:31:16 by glafitte          #+#    #+#             */
+/*   Updated: 2015/02/06 15:35:53 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,11 @@
 static void	ft_recup_signal(int signal)
 {
 	(void)signal;
-	ft_clear_area();
-	return ;
 }
 
-int			ft_ret_resize(t_param *p)
+int			ft_signal(void)
 {
-	t_winsize	w;
-
-	ioctl(0, TIOCGWINSZ, &w);
-	p->width = w.ws_row;
-	p->height = w.ws_col;
+	if (signal(SIGTSTP, ft_recup_signal) == SIG_ERR)
+		ft_puterror("Erreur: signal");
 	return (0);
-}
-
-void		ft_refresh_buff(t_param *p)
-{
-	int	i;
-
-	i = -1;
-	while (++i < 4)
-		p->buffer[i] = 0;
 }
