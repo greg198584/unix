@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/24 10:20:51 by glafitte          #+#    #+#             */
-/*   Updated: 2015/02/06 11:14:28 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/02/06 14:10:10 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@ static void	ft_recup_signal(int signal)
 	return ;
 }
 
-int			ft_signal(t_param *p)
+int			ft_signal_rs(t_param *p)
 {
 	t_winsize	w;
 
-	signal(SIGWINCH, SIG_IGN);
+	if (signal(SIGWINCH, ft_recup_signal) == SIG_ERR)
+		ft_puterror("---> [ Erreur signal ] <---");
 	ioctl(0, TIOCGWINSZ, &w);
 	p->width = w.ws_row;
 	p->height = w.ws_col;

@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/24 11:11:20 by glafitte          #+#    #+#             */
-/*   Updated: 2015/02/05 15:23:19 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/02/06 12:50:19 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_check(t_param *p, t_list *list, t_termios *term)
 	ft_hide_cursor();
 	while (1)
 	{
-		ft_signal(p);
+		ft_signal_rs(p);
 		read(0, p->buffer, 3);
 		while (ft_touch[++i].key != -1)
 		{

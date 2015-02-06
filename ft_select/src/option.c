@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/23 17:59:40 by glafitte          #+#    #+#             */
-/*   Updated: 2015/02/06 11:14:33 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/02/06 12:53:31 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_exit(t_param *p, t_list *list, t_termios *term)
 	(void)p;
 	(void)list;
 
+	ft_clear_area();
+	ft_visible_cursor();
 	ft_putendl("fermeture du programme");
 	if((ft_clear_term(term)) == -1)
 		ft_puterror("Erreur: lors du retablissement du terminal");

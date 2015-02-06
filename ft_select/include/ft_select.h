@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/20 12:03:01 by glafitte          #+#    #+#             */
-/*   Updated: 2015/02/06 11:14:24 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/02/06 12:48:59 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int							ft_check(t_param *p, t_list *list, t_termios *term);
 void						ft_init_value(t_param *p, t_list *list);
 void						ft_init_down(t_param *p, t_list *list);
 void						ft_init_up(t_param *p, t_list *list);
-int							ft_signal(t_param *p);
+int							ft_signal_rs(t_param *p);
 int							ft_del(t_param *p, t_list *list, t_termios *term);
 void						ft_clear_list(t_list *list, int pos);
 int							ft_clear_term(t_termios *term);
