@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/20 12:03:01 by glafitte          #+#    #+#             */
-/*   Updated: 2015/02/06 16:20:33 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/02/09 14:33:59 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,16 +57,17 @@ typedef struct				s_param
 	int						width;
 	int						height;
 	int						count;
-	t_termios				save_term;
+	int						nb_elt;
+	t_termios				*save_term;
 }							t_param;
 
 typedef struct				s_keyboard
 {
-	int						(*func_ptr)(t_param *p, t_list *list, t_termios *term);
+	int						(*func_ptr)(t_param *p, t_list *l, t_termios *t);
 	int						key;
 }							t_keyboard;
 
-int							ft_signal(void);
+int							ft_display_list(t_list *list);
 int							ft_ret_resize(t_param *p);
 void						ft_refresh_buff(t_param *p);
 void						ft_visible_cursor(void);
@@ -86,17 +87,18 @@ void						ft_init_down(t_param *p, t_list *list);
 void						ft_init_up(t_param *p, t_list *list);
 int							ft_del(t_param *p, t_list *list, t_termios *term);
 void						ft_clear_list(t_list *list, int pos);
-int							ft_clear_term(t_termios *term);
-void						ft_end_underline();
+int							ft_clear_term(t_param *p);
+void						ft_end_underline(void);
 void						ft_start_reverse(int y);
 void						ft_start_underline(int y);
 void						ft_delete_char(int j, int size);
-void						ft_list_remove(t_param *p,  t_list **list, int pos);
+void						ft_list_remove(t_param *p, t_list **list, int pos);
 void						ft_line(char *s, int pos, char valid, int type);
-int							ft_display_list(t_list *list);
 void						ft_add_list(t_list **list, char *str);
 int							ft_enter(t_param *p, t_list *list, t_termios *term);
 int							ft_init_select(t_param *p, char *name_term,
 											t_termios *term);
+int							ft_signal(t_param *p, t_list *lst, t_termios *term,
+										char *name_term);
 
 #endif

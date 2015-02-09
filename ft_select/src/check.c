@@ -6,13 +6,13 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/24 11:11:20 by glafitte          #+#    #+#             */
-/*   Updated: 2015/02/06 15:36:10 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/02/09 14:28:07 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-t_keyboard ft_touch[]=
+t_keyboard g_touch[] =
 {
 	{&ft_exit, 4},
 	{&ft_exit, 3},
@@ -25,8 +25,8 @@ t_keyboard ft_touch[]=
 
 int	ft_check(t_param *p, t_list *list, t_termios *term)
 {
-	int		res;
-	int 	i;
+	int	res;
+	int	i;
 
 	i = -1;
 	ft_hide_cursor();
@@ -34,7 +34,7 @@ int	ft_check(t_param *p, t_list *list, t_termios *term)
 	{
 		ft_ret_resize(p);
 		read(0, p->buffer, 3);
-		while (ft_touch[++i].key != -1)
+		while (g_touch[++i].key != -1)
 		{
 			if (p->count == 0)
 			{
@@ -43,10 +43,10 @@ int	ft_check(t_param *p, t_list *list, t_termios *term)
 			}
 			if (i == 7)
 				i = 0;
-			if (ft_touch[i].key == p->buffer[0])
-				res = (ft_touch[i].func_ptr(p, list, term));
+			if (g_touch[i].key == p->buffer[0])
+				res = (g_touch[i].func_ptr(p, list, term));
 		}
-		ft_signal();
+		ft_ret_resize(p);
 	}
 	return (0);
 }

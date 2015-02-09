@@ -6,19 +6,16 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/22 20:31:06 by glafitte          #+#    #+#             */
-/*   Updated: 2015/02/02 17:45:05 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/02/09 14:28:54 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-int		ft_clear_term(t_termios *term)
+int		ft_clear_term(t_param *p)
 {
-	if (tcgetattr(0, term) == -1)
+	if (tcsetattr(0, TCSANOW, p->save_term) == -1)
 		return (-1);
-	term->c_lflag = (ICANON | ECHO);
-	if (tcsetattr(0, 0, term) == -1)
-		return(-1);
 	return (0);
 }
 
@@ -36,9 +33,9 @@ void	ft_delete_char(int j, int size)
 {
 	char	*del_str;
 	char	*str;
-	int	i;
+	int		i;
 
-	del_str= tgetstr("dc", NULL);
+	del_str = tgetstr("dc", NULL);
 	i = 0;
 	while (i < size)
 	{

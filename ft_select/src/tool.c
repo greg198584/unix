@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/24 10:20:51 by glafitte          #+#    #+#             */
-/*   Updated: 2015/02/06 15:05:44 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/02/09 14:43:18 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 static void	ft_recup_signal(int signal)
 {
 	(void)signal;
-	ft_clear_area();
-	return ;
 }
 
 int			ft_ret_resize(t_param *p)

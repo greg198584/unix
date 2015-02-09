@@ -6,19 +6,19 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/24 11:31:50 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/31 13:36:54 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/02/09 14:33:43 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_select.h"
 
-void	ft_end_underline()
+void	ft_end_underline(void)
 {
 	char	*str;
-	char	*es;
+	char	*me;
 
-	es = tgetstr("me", NULL);
-	if ((str = tgoto(es, 0, 0)) == NULL)
+	me = tgetstr("me", NULL);
+	if ((str = tgoto(me, 0, 0)) == NULL)
 		ft_puterror("erreur: tgoto! : termcaps.c\n");
 	if (tputs(str, 1, ft_putchar) == -1)
 		ft_puterror("erreur: tputs!: termcaps.c\n");

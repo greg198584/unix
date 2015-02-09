@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/22 17:20:02 by glafitte          #+#    #+#             */
-/*   Updated: 2015/02/06 10:48:53 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/02/09 14:36:07 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	ft_del_element(t_list *tmp)
 	tmp = 0;
 }
 
-int		ft_display_list(t_list *list)
+int			ft_display_list(t_list *list)
 {
 	t_list	*tmp;
 
@@ -37,7 +37,7 @@ int		ft_display_list(t_list *list)
 	return (0);
 }
 
-void	ft_list_remove(t_param *p,  t_list **list, int pos)
+void		ft_list_remove(t_param *p, t_list **list, int pos)
 {
 	t_list	*tmp;
 
@@ -56,7 +56,7 @@ void	ft_list_remove(t_param *p,  t_list **list, int pos)
 	p->count -= 1;
 }
 
-t_list	*ft_ret_elt(t_list *lst, int pos)
+t_list		*ft_ret_elt(t_list *lst, int pos)
 {
 	t_list	*tmp;
 

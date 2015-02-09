@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/22 17:19:56 by glafitte          #+#    #+#             */
-/*   Updated: 2015/02/06 10:47:07 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/02/09 14:29:21 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void			ft_add_list(t_list **list, char *str)
 	head = tmp;
 	if (tmp)
 	{
-		while(tmp->next != head)
+		while (tmp->next != head)
 			tmp = tmp->next;
 		tmp->next = ft_create_element(str);
 		tmp->next->prev = tmp;
@@ -47,7 +47,7 @@ void			ft_add_list(t_list **list, char *str)
 		head->prev = tmp->next;
 	}
 	else
-		*list = ft_create_element("----[ ft_select ]----");
+		*list = ft_create_element(str);
 }
 
 t_list			*ft_create_list(int argc, char **argv)
@@ -59,7 +59,8 @@ t_list			*ft_create_list(int argc, char **argv)
 	if ((list = malloc(sizeof(t_list))) == NULL)
 		ft_puterror("Erreur: allocation memoire. main.c");
 	list = NULL;
-	while(i++ < argc - 1)
+	ft_add_list(&list, "----[ ft_select ]----");
+	while (i++ < argc - 1)
 		ft_add_list(&list, argv[i]);
 	ft_add_list(&list, "---[ FIN DE LISTE ]---");
 	return (list);

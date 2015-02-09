@@ -6,7 +6,7 @@
 #    By: glafitte <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/25 14:02:08 by glafitte          #+#    #+#              #
-#    Updated: 2015/02/06 15:30:55 by glafitte         ###   ########.fr        #
+#    Updated: 2015/02/09 14:45:02 by glafitte         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ $(NAME) : $(OBJ)
 	@echo "\033[37;1m[\033[32mOK !\033[37m]\033[0m"
 
 OBJ : $(OBJ)
-	$(CC) -I include/ $< -c $(SRCS)
+	$(CC) $(WFLAGS) $(CFLAGS) $< -c $(SRCS)
 
 clean :
 	@make -C $(LIBFT) clean

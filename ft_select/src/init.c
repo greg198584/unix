@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/22 17:19:50 by glafitte          #+#    #+#             */
-/*   Updated: 2015/02/06 16:06:03 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/02/09 14:44:08 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,18 @@ int		ft_init_select(t_param *p, char *name_term, t_termios *term)
 	t_winsize	w;
 
 	ioctl(0, TIOCGWINSZ, &w);
-	p->width = w.ws_row;
-	p->height = w.ws_col;
+	p->width = w.ws_col;
+	p->height = w.ws_row;
+	if (p->count > p->height)
+		ft_puterror("Erreur: Trop d'arguments , veuillez redimenssionner !");
 	if (tgetent(NULL, name_term) == ERR)
+		return (-1);
+	if (tcgetattr(0, p->save_term) == -1)
 		return (-1);
 	if (tcgetattr(0, term) == -1)
 		return (-1);
-	term->c_lflag &= ~(ICANON);
-	term->c_lflag &= ~(ECHO);
+	term->c_lflag &= ~ICANON;
+	term->c_lflag &= ~ECHO;
 	term->c_cc[VMIN] = 1;
 	term->c_cc[VTIME] = 0;
 	if (tcsetattr(0, TCSANOW, term) == -1)
