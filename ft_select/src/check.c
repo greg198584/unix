@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/24 11:11:20 by glafitte          #+#    #+#             */
-/*   Updated: 2015/02/09 14:28:07 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/02/12 14:29:07 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 t_keyboard g_touch[] =
 {
-	{&ft_exit, 4},
-	{&ft_exit, 3},
 	{&ft_space, 32},
 	{&ft_move, 27},
 	{&ft_del, 127},
@@ -41,7 +39,7 @@ int	ft_check(t_param *p, t_list *list, t_termios *term)
 				ft_clear_area();
 				ft_puterror("Erreur: votre liste est maintenant vide !");
 			}
-			if (i == 7)
+			if (i == 5)
 				i = 0;
 			if (g_touch[i].key == p->buffer[0])
 				res = (g_touch[i].func_ptr(p, list, term));

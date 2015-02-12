@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/06 15:31:16 by glafitte          #+#    #+#             */
-/*   Updated: 2015/02/09 14:18:12 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/02/12 14:36:34 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,12 @@ static void	ft_recup_signal(int signal)
 	ft_reinit();
 }
 
+static void	ft_signal_exit(int signal)
+{
+	ft_clear_area();
+	ft_exit(g_p, g_list, g_term);
+}
+
 int			ft_signal(t_param *p, t_list *lst, t_termios *term, char *name_term)
 {
 	g_list = lst;
@@ -44,6 +50,10 @@ int			ft_signal(t_param *p, t_list *lst, t_termios *term, char *name_term)
 	g_term = term;
 	g_name_term = name_term;
 	if (signal(SIGCONT, ft_recup_signal) == SIG_ERR)
+		ft_puterror("Erreur: signal");
+	if (signal(SIGINT, ft_signal_exit) == SIG_ERR)
+		ft_puterror("Erreur: signal");
+	if (signal(SIGQUIT, ft_signal_exit) == SIG_ERR)
 		ft_puterror("Erreur: signal");
 	return (0);
 }
