@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/02 10:09:33 by glafitte          #+#    #+#             */
-/*   Updated: 2015/04/02 11:22:57 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/04/02 11:24:24 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,6 @@ t_env	*ft_create_list(char **env)
 
 	if ((root = malloc(sizeof(*root))) == NULL)
 		ERR_LOC("allocation memoire");
+
+	return (root);
 }
