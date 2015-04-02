@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/09/04 08:16:28 by glafitte          #+#    #+#             */
-/*   Updated: 2015/04/01 15:24:10 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/04/02 11:19:00 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 # define LIBFT_H
 
 # include <string.h>
+# include <sys/stat.h>
 
 # define REPLACE_ONCE	0
 # define REPLACE_EMPTY	""
 # define BUFF_SIZE		0x2323
+# define ERR_LOC(str)	ft_err_loc(__FILE__, __LINE__, str)
 
 typedef struct			s_gnlp
 {
@@ -26,6 +28,7 @@ typedef struct			s_gnlp
 	struct s_gnlp		*next;
 }						t_gnlp;
 
+void					ft_err_loc(char *file, int line, char *msg);
 int						ft_gnl(int const fd, char **line);
 void					ft_freetab(char ***tab);
 int						ft_fprintf(int fd, char const *format, ...);

@@ -6,7 +6,7 @@
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/27 15:59:06 by glafitte          #+#    #+#             */
-/*   Updated: 2015/01/03 18:58:00 by glafitte         ###   ########.fr       */
+/*   Updated: 2015/04/02 11:22:46 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	ft_add_element(t_env **list, char *val, char *start)
 		ft_puterror("Erreur d'allocation memoire init_list.c: ligne 29\n");
 	j = -1;
 	i = -1;
+	if (start)
+		ft_printf("val = [%s] || start = [%s]\n", val, start);
 	while (start != NULL && start[++i])
 		new->data[++j] = start[i];
 	i = -1;
