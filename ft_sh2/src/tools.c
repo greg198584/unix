@@ -1,39 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/04/01 15:46:05 by glafitte          #+#    #+#             */
-/*   Updated: 2015/04/03 14:01:44 by glafitte         ###   ########.fr       */
+/*   Created: 2015/04/03 13:09:31 by glafitte          #+#    #+#             */
+/*   Updated: 2015/04/03 13:12:47 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_sh2.h"
-#include <stdlib.h>
-
-static	int	ft_shell(t_env *list)
+char	ft_strcmp_sh(const char *s1, const char *s2, char equal)
 {
-	(void)list;
-	char	*line;
-	int		ret;
+	int	i;
 
-	while (1)
-	{
-		if ((ret = ft_gnl(0, &line)) > 0)
-			ft_fprintf(1, "%s\n", line);
-		free(line);
-	}
-	return (0);
-}
-
-int	main(int argc, char **argv, char **env)
-{
-	(void)argc;
-	(void)argv;
-	(void)env;
-
-	ft_shell(NULL);
-	return (0);
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	if (equal)
+		return (s1[i] == '=' && s2[i] == '\0');
+	return ((s1[i] == s2[i] == ' ' || s1[i] == '\t') && s2[i] == '\0');
 }

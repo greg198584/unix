@@ -1,39 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   env.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: glafitte <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/04/01 15:46:05 by glafitte          #+#    #+#             */
-/*   Updated: 2015/04/03 14:01:44 by glafitte         ###   ########.fr       */
+/*   Created: 2015/04/03 12:55:44 by glafitte          #+#    #+#             */
+/*   Updated: 2015/04/03 13:06:40 by glafitte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_sh2.h"
-#include <stdlib.h>
+#ifndef ENV_H
+# define ENV_H
 
-static	int	ft_shell(t_env *list)
-{
-	(void)list;
-	char	*line;
-	int		ret;
+# include "ft_sh2.h"
 
-	while (1)
-	{
-		if ((ret = ft_gnl(0, &line)) > 0)
-			ft_fprintf(1, "%s\n", line);
-		free(line);
-	}
-	return (0);
-}
+t_env	*ft_create_list(char **env);
+void	ft_add_element(t_env **list, char *val, char *start);
 
-int	main(int argc, char **argv, char **env)
-{
-	(void)argc;
-	(void)argv;
-	(void)env;
-
-	ft_shell(NULL);
-	return (0);
-}
+#endif
