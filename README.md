@@ -1,15 +1,11 @@
-ft_ls : fonctionnel , mais mal optimiser . [ bientot rectifier ]
+ft_ls:
 
-  manque la lecture recursive dans les sous dossier cache.
-  
-  manque l'affichage du dossier dev + autre detail.
-  
-  gestion d'erreur imcomplete.
-  
-  erreur de trie par date.
-  
-FT_SH_1 [ En cours ... ]
+finaliser, mais manque des fonctions.
 
-  manque setenv et unsetenv.
-  
-  problem avec la fonction exit: voir commit pour plus de detail de l'avancement.
+FT_SH1:
+
+terminee, mes contient des fuites memoires. et certaines fonction ne sont pas celle desirer.
+
+FT_SELECT: 
+
+En deux mots. " j'ai fait un truc pourri " en faite ca fait 5 mots. Grosse decouverte de termcaps.
